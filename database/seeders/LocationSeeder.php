@@ -12,20 +12,26 @@ class LocationSeeder extends Seeder
     public function run(): void
     {
         // Create admin user
-        User::create([
-            'name' => 'Admin HealPoint',
-            'email' => 'admin@healpoint.id',
-            'password' => Hash::make('password123'),
-            'role' => 'admin',
-        ]);
+        if (!User::where('email', 'admin@healpoint.id')->exists()) {
+            User::create([
+                'name' => 'Admin HealPoint',
+                'email' => 'admin@healpoint.id',
+                'password' => Hash::make('password123'),
+                'role' => 'admin',
+            ]);
+        }
 
         // Create demo user
-        User::create([
-            'name' => 'Pengguna Demo',
-            'email' => 'demo@healpoint.id',
-            'password' => Hash::make('password123'),
-            'role' => 'user',
-        ]);
+        if (!User::where('email', 'demo@healpoint.id')->exists()) {
+            User::create([
+                'name' => 'Pengguna Demo',
+                'email' => 'demo@healpoint.id',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+            ]);
+        }
+
+        $existing = \Illuminate\Support\Facades\DB::table('locations')->pluck('name')->map(fn($n) => strtolower(trim($n)))->toArray();
 
         $spots = [
             // === CIREBON ===
@@ -186,6 +192,9 @@ class LocationSeeder extends Seeder
         ];
 
         foreach ($spots as $data) {
+            if (in_array(strtolower(trim($data['name'])), $existing)) {
+                continue;
+            }
             Location::create($data);
         }
     }
