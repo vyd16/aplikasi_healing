@@ -18,11 +18,5 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (\Throwable $e) {
-            header('Content-Type: text/plain', true, 500);
-            echo "ORIGINAL EXCEPTION CAUGHT BY HANDLER: " . $e->getMessage() . "\n";
-            echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
-            echo "Trace:\n" . $e->getTraceAsString();
-            exit;
-        });
+        //
     })->create();

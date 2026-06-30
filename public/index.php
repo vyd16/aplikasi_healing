@@ -13,22 +13,8 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
-try {
-    // Bootstrap Laravel and handle the request...
-    /** @var Application $app */
-    $app = require_once __DIR__.'/../bootstrap/app.php';
+// Bootstrap Laravel and handle the request...
+/** @var Application $app */
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-    $request = Request::capture();
-    $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
-    $kernel->bootstrap();
-
-    $response = $kernel->handle($request);
-    $response->send();
-    $kernel->terminate($request, $response);
-} catch (\Throwable $e) {
-    header('Content-Type: text/plain', true, 500);
-    echo "ORIGINAL EXCEPTION: " . $e->getMessage() . "\n";
-    echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
-    echo "Trace:\n" . $e->getTraceAsString();
-    exit;
-}
+$app->handleRequest(Request::capture());
