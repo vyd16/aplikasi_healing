@@ -18,9 +18,15 @@ try {
     /** @var Application $app */
     $app = require_once __DIR__.'/../bootstrap/app.php';
 
-    $app->handleRequest(Request::capture());
+    $request = Request::capture();
+    $kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
+    $kernel->bootstrap();
+
+    $response = $kernel->handle($request);
+    $response->send();
+    $kernel->terminate($request, $response);
 } catch (\Throwable $e) {
-    header('Content-Type: text/plain');
+    header('Content-Type: text/plain', true, 500);
     echo "ORIGINAL EXCEPTION: " . $e->getMessage() . "\n";
     echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
     echo "Trace:\n" . $e->getTraceAsString();
