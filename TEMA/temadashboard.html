@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sanctuary | Your Healing Space</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #dcc1b6;
+            border-radius: 10px;
+        }
+
+        .pebble-shadow {
+            box-shadow: 0 20px 40px -10px rgba(62, 43, 31, 0.08);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-panel {
+            background: rgba(30, 28, 21, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dedace",
+                        "on-background": "#1d1c15",
+                        "on-surface": "#1d1c15",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#765e4f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e7e2d6",
+                        "surface-variant": "#e7e2d6",
+                        "surface-container-high": "#ede8dc",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#323029",
+                        "secondary": "#71594b",
+                        "primary-fixed-dim": "#ffb595",
+                        "tertiary-fixed-dim": "#becbae",
+                        "tertiary": "#56624a",
+                        "on-tertiary-container": "#020600",
+                        "background": "#fef9ed",
+                        "tertiary-fixed": "#dae7c9",
+                        "inverse-on-surface": "#f5f0e4",
+                        "on-tertiary-fixed": "#141e0c",
+                        "tertiary-container": "#6f7b62",
+                        "on-tertiary-fixed-variant": "#3f4a34",
+                        "inverse-primary": "#ffb595",
+                        "on-primary-fixed": "#351000",
+                        "secondary-fixed-dim": "#dfc0af",
+                        "outline": "#897269",
+                        "outline-variant": "#dcc1b6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#fcdcca",
+                        "secondary-container": "#f9d9c7",
+                        "on-secondary-fixed": "#28180d",
+                        "primary": "#9a4417",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#9b4517",
+                        "on-secondary-fixed-variant": "#584235",
+                        "surface": "#fef9ed",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f8f3e7",
+                        "primary-container": "#ba5c2d",
+                        "on-surface-variant": "#56433b",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#f2ede2",
+                        "surface-bright": "#fef9ed",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Manrope"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background dark:bg-surface-dim text-on-surface transition-colors duration-300 font-body-md overflow-x-hidden">
+    <!-- Navigation Sidebar (SideNavBar Anchor) -->
+    <aside
+        class="fixed left-unit top-unit bottom-unit w-20 md:w-64 bg-surface-container-low dark:bg-surface-dim rounded-full my-4 ml-4 px-3 py-6 shadow-xl shadow-[#3E2B1F]/5 flex flex-col justify-between z-50 transition-all duration-300 overflow-hidden"
+        id="sidebar">
+        <div class="flex flex-col gap-6">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 px-4 py-2">
+                <div
+                    class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-on-primary shrink-0">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">spa</span>
+                </div>
+                <div class="hidden md:block overflow-hidden whitespace-nowrap">
+                    <h1
+                        class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface-variant">
+                        Sanctuary</h1>
+                    <p class="text-label-sm font-label-sm text-on-surface-variant">Find your peace</p>
+                </div>
+            </div>
+            <!-- Main Nav Items -->
+            <nav class="flex flex-col gap-2">
+                <!-- Dashboard (Active) -->
+                <a class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full p-4 flex items-center gap-3 transition-all duration-300 active:scale-95"
+                    href="#">
+                    <span class="material-symbols-outlined active-icon">dashboard</span>
+                    <span class="hidden md:block font-label-md text-label-md">Dashboard</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">explore</span>
+                    <span class="hidden md:block font-label-md text-label-md">Directory</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">spa</span>
+                    <span class="hidden md:block font-label-md text-label-md">Atmospheres</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span class="hidden md:block font-label-md text-label-md">Collections</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">rate_review</span>
+                    <span class="hidden md:block font-label-md text-label-md">Reviews</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="hidden md:block font-label-md text-label-md">Settings</span>
+                </a>
+            </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+            <!-- Theme Toggle -->
+            <div class="px-2 md:px-4">
+                <div class="flex items-center justify-between bg-surface-container rounded-full p-1 md:p-2">
+                    <button class="p-2 rounded-full hover:bg-primary-fixed transition-colors text-on-surface-variant"
+                        onclick="setTheme('light')" title="Light Mode">
+                        <span class="material-symbols-outlined text-[20px]">light_mode</span>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-primary-fixed transition-colors text-on-surface-variant"
+                        onclick="setTheme('dark')" title="Dark Mode">
+                        <span class="material-symbols-outlined text-[20px]">dark_mode</span>
+                    </button>
+                    <button
+                        class="hidden md:flex p-2 rounded-full hover:bg-primary-fixed transition-colors text-on-surface-variant"
+                        onclick="setTheme('system')" title="System Theme">
+                        <span class="material-symbols-outlined text-[20px]">settings_brightness</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Footer Nav Items -->
+            <div class="flex flex-col gap-1 border-t border-outline-variant/30 pt-4">
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <span class="hidden md:block font-label-md text-label-md">Profile</span>
+                </a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant p-4 flex items-center gap-3 hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined text-error">logout</span>
+                    <span class="hidden md:block font-label-md text-label-md">Logout</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Canvas Area -->
+    <main class="ml-24 md:ml-72 min-h-screen px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto">
+        <!-- Header (TopAppBar Anchor inspired) -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+            <div class="animate-fade-in">
+                <h2
+                    class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface dark:text-on-surface-variant">
+                    Halo, Selamat Datang di Sanctuary
+                </h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-2">Let's find your sanctuary today.</p>
+            </div>
+            <div class="relative w-full md:w-96 group">
+                <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                    <span
+                        class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+                </div>
+                <input
+                    class="w-full pl-12 pr-4 py-4 bg-surface-container-low dark:bg-surface-container border-none rounded-full font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 transition-all pebble-shadow"
+                    placeholder="Find your peace..." type="text" />
+            </div>
+        </header>
+        <!-- Featured Section (Rekomendasi Minggu Ini) -->
+        <section class="mb-12">
+            <div class="relative w-full h-[400px] md:h-[480px] rounded-[32px] overflow-hidden pebble-shadow group">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    data-alt="A serene luxury wellness retreat called Zenergy Retreat, nestled in a lush Indonesian forest with sustainable bamboo architecture, infinity reflecting pools mirroring the warm golden hour sky, and misty mountains in the background. The aesthetic is organic and premium with earthy terracotta tones and soft natural light."
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMcjZ4i3Nxw33CMpOX-UWgWcegQb4Mjr2VSQZFbJfZ2-YwNX0M33jXMGmEOo4PJQvulm86rzHdhCmDapLOf_8grV_PnH9RDSyIRCkRLiMlW5kDzciKmaHSsdbxjdTTZNGsO3EAGoWL3Ju6Vn18RmRpOEr9_Vc0acoSay1WURixyufhVSco2qvTPxo4PIajSJ9pz9hhytsr9zCu-0mp5KP8740KBpn1JFIBxkWCesbb21JaHAJPgNM8ioKr8ru86efoeXBtg59bRKxH')">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white max-w-2xl">
+                    <div
+                        class="inline-flex items-center gap-2 bg-tertiary/80 backdrop-blur-md px-4 py-2 rounded-full mb-4">
+                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                        <span class="font-label-md text-label-md">Rekomendasi Minggu Ini</span>
+                    </div>
+                    <h3 class="font-display-lg text-[40px] md:text-display-lg leading-tight mb-4">Zenergy Retreat:
+                        Kembali ke Alam</h3>
+                    <p class="font-body-lg text-body-lg text-white/80 mb-8 line-clamp-2 md:line-clamp-none">Pengalaman
+                        meditasi mendalam di tengah hutan pinus dengan fasilitas spa alami dan bimbingan praktisi
+                        profesional.</p>
+                    <button
+                        class="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-full font-label-md text-label-md transition-all active:scale-95 pebble-shadow flex items-center gap-2">
+                        Pesan Sesi Sekarang <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Filter Panel (Panel Filter Suasana) -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h4 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+                    Panel Filter Suasana <span class="material-symbols-outlined text-primary">filter_list</span>
+                </h4>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Budget Filter -->
+                <div
+                    class="bg-surface-container-low dark:bg-surface-container p-6 rounded-[24px] pebble-shadow border border-outline-variant/10 hover:border-primary/30 transition-colors group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-secondary-fixed rounded-2xl text-on-secondary-fixed">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="font-label-md text-label-md text-on-surface">Anggaran (Budget)</span>
+                    </div>
+                    <select
+                        class="w-full bg-white dark:bg-surface-dim border-none rounded-xl p-3 font-body-md text-on-surface-variant focus:ring-2 focus:ring-primary/20">
+                        <option>Hemat (Budget-friendly)</option>
+                        <option>Menengah (Standard)</option>
+                        <option>Mewah (Premium)</option>
+                    </select>
+                </div>
+                <!-- Radius Filter -->
+                <div
+                    class="bg-surface-container-low dark:bg-surface-container p-6 rounded-[24px] pebble-shadow border border-outline-variant/10 hover:border-primary/30 transition-colors group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-tertiary-fixed rounded-2xl text-on-tertiary-fixed">
+                            <span class="material-symbols-outlined">near_me</span>
+                        </div>
+                        <span class="font-label-md text-label-md text-on-surface">Jarak Terdekat</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <input
+                            class="w-full h-2 bg-secondary-container rounded-full appearance-none cursor-pointer accent-primary"
+                            type="range" />
+                        <span class="font-label-md text-on-surface-variant min-w-[40px]">15km</span>
+                    </div>
+                </div>
+                <!-- Tranquility Filter -->
+                <div
+                    class="bg-surface-container-low dark:bg-surface-container p-6 rounded-[24px] pebble-shadow border border-outline-variant/10 hover:border-primary/30 transition-colors group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-primary-fixed rounded-2xl text-on-primary-fixed">
+                            <span class="material-symbols-outlined">self_improvement</span>
+                        </div>
+                        <span class="font-label-md text-label-md text-on-surface">Tingkat Ketenangan</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex-1 py-2 px-3 rounded-xl bg-primary text-white font-label-sm text-label-sm">High</button>
+                        <button
+                            class="flex-1 py-2 px-3 rounded-xl bg-white dark:bg-surface-dim text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/20 hover:border-primary/30 transition-colors">Med</button>
+                        <button
+                            class="flex-1 py-2 px-3 rounded-xl bg-white dark:bg-surface-dim text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/20 hover:border-primary/30 transition-colors">Soft</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Aesthetic Gallery (Galeri Visual Estetik) -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-8">
+                <h4 class="font-headline-md text-headline-md text-on-surface">Galeri Visual Estetik</h4>
+                <button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline">Lihat
+                    Semua <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <!-- Location Card 1 -->
+                <div
+                    class="bg-white dark:bg-surface-dim rounded-[24px] overflow-hidden pebble-shadow hover:-translate-y-1 transition-transform duration-300">
+                    <div class="h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="A minimalist zen garden in Kyoto style, featuring perfectly raked white gravel circles, smooth dark river stones, and a single bright green moss-covered mound. Warm morning sunlight filters through bamboo screens, creating long rhythmic shadows. The image is clean, sharp, and evokes profound silence."
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7VUkhP6deESrT6680qI3MtGo05g7HO4b-R1xrnWh6ZDEMDk87nxILrzqN1ZXfCGbZJ6e03Ky6eYNXZcA9vB4InS6aHbKBY6HP-NrQgPEDtXUNoiSK03zlWgAtfbxLZkVidFuS3zvSq_fHV-GyojEB-nAePrlRnS2xgVXpO1t5satEDwBJIHU0heItzq2dP74nXPjKfgdnBlA6JkBII_Y53laW1wii1Tnf8W6kRkb-5wxFuYOuH2r1cax6qnuSEvWowDag5QukxJXn')">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-primary text-[16px]"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h5 class="font-headline-md text-[20px] text-on-surface">The Silent Stone</h5>
+                            <span
+                                class="font-label-sm text-label-sm text-primary bg-primary-fixed px-2 py-0.5 rounded-md">Zen
+                                Garden</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-md text-body-md mb-6 line-clamp-2">Taman batu
+                            tradisional Jepang yang dirancang untuk meditasi mendalam dan penjernihan pikiran.</p>
+                        <button
+                            class="w-full py-4 px-6 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container rounded-full font-label-md text-label-md transition-all active:scale-95 flex justify-center items-center gap-2">
+                            Lihat Tempat <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Location Card 2 -->
+                <div
+                    class="bg-white dark:bg-surface-dim rounded-[24px] overflow-hidden pebble-shadow hover:-translate-y-1 transition-transform duration-300">
+                    <div class="h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="An ethereal indoor swimming pool designed like a natural grotto, with turquoise thermal water, warm limestone walls, and soft amber recessed lighting. Steam rises gently from the water surface, and the atmosphere is mystical and restorative. Soft terracotta and beige palette matches the UI style."
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX4-Ea9nPtka8CCgmjJlejzj_kJwBm2XWkAG5-MBZ3G7hXjZ26LUNZEEMzPwI1sTGPiUyRT8xP0E--hvyIMN5bimDJKyT7DnQdspqgCHa1Z4JbHwV8HLINif1f7uQhxLuZh3pngtE3nzYtVOFeftn8S4HInGoacOTrJRc1MJKRUl44LRtAusK6woONfn4UjPJ8oOK4vw8OEJwKVjjiHUsxiwQhcwooDd6yGdvee47BP0GRorpPsgE-kiVkidFQvcWKiJjqek1ANsrw')">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-primary text-[16px]"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="font-label-sm text-label-sm text-on-surface font-bold">4.8</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h5 class="font-headline-md text-[20px] text-on-surface">Aqua Sanctuary</h5>
+                            <span
+                                class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed px-2 py-0.5 rounded-md">Thermal
+                                Spa</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-md text-body-md mb-6 line-clamp-2">Relaksasi air
+                            hangat di bawah kubah stalaktit buatan dengan pencahayaan temaram yang menenangkan.</p>
+                        <button
+                            class="w-full py-4 px-6 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container rounded-full font-label-md text-label-md transition-all active:scale-95 flex justify-center items-center gap-2">
+                            Lihat Tempat <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Location Card 3 -->
+                <div
+                    class="bg-white dark:bg-surface-dim rounded-[24px] overflow-hidden pebble-shadow hover:-translate-y-1 transition-transform duration-300">
+                    <div class="h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            data-alt="A modern library designed for silence, with floor-to-ceiling wooden bookshelves, plush velvet armchairs in sage green, and large circular windows looking out into a snowy landscape. The lighting is warm and task-focused. A calm, intellectual, and safe space for reading and reflection."
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDLkmfpP7unpC9fYDLIDI3R6xzrcPA-MkPD69rSTZK0rIe-ht2yLDwDe1JxEBZ69hrrot1BOteomygPS9a9sN-vXOank88-7Cy1luXDnNG3N3fC9Esdls_XPDt1HtaGY3Nv8wNWn49eGz1UvruGqt1bUyi_mHBdRRkJMglLy9YbaHC9sOZpWpm5WVpr4ZCN0XRViQg_Mvr4DFr-uzFBM-b4mV-z-kFYF0B_GBPieYv6RTFmExTidoeK2MDqcMm-vScdG7kS19sDHYi')">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full px-3 py-1 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-primary text-[16px]"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="font-label-sm text-label-sm text-on-surface font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h5 class="font-headline-md text-[20px] text-on-surface">Silent Library</h5>
+                            <span
+                                class="font-label-sm text-label-sm text-on-primary-container bg-primary-container/20 px-2 py-0.5 rounded-md">Mind
+                                Space</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-md text-body-md mb-6 line-clamp-2">Perpustakaan
+                            dengan aturan hening total, kursi ergonomis, dan koleksi literatur penyembuhan batin.</p>
+                        <button
+                            class="w-full py-4 px-6 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container rounded-full font-label-md text-label-md transition-all active:scale-95 flex justify-center items-center gap-2">
+                            Lihat Tempat <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Latest Reviews (Ulasan Terbaru) -->
+        <section class="mb-12">
+            <h4 class="font-headline-md text-headline-md text-on-surface mb-8">Ulasan Terbaru</h4>
+            <div class="flex overflow-x-auto gap-gutter pb-6 no-scrollbar">
+                <!-- Review Card 1 -->
+                <div
+                    class="min-w-[320px] md:min-w-[400px] bg-tertiary-fixed/30 p-8 rounded-[32px] border border-tertiary-fixed/50">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-full overflow-hidden bg-white border-2 border-white pebble-shadow">
+                            <img class="w-full h-full object-cover"
+                                data-alt="Close up profile photo of a smiling woman with a calm expression, wearing a linen shirt, set against a soft bokeh background of a botanical garden. High quality lifestyle photography."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvj-_0oVzdjE_FANpSEXoTEr3yV_aQuq1r_Vy0I1CVnEb2UjoS6O3qygSDTgUlQUf-HIRiHUjvuLV08Zpo0CkshTGyLBRK-O5YbfHa_erAmAaWZ-p-yvG4a7JsW0VAr-njv6aAJ3mP6LHsoED6npr5WqFAi27-_Q2UU0uqAM2m5KJRvgRBmuF68oiXC0UPvQpUsxZ1_LHq9ceuX_36hIOUn5Jb2SzRLFNpwTIQt0w_LIzu_ibzOb6hddZEFoobV4sViSNa35XbDggv" />
+                        </div>
+                        <div>
+                            <p class="font-label-md text-label-md text-on-surface">Saraswati Putri</p>
+                            <p class="text-label-sm font-label-sm text-on-tertiary-fixed-variant">Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <p class="font-body-md text-body-md italic text-on-surface-variant mb-6">"Tempat yang luar biasa
+                        untuk melepas penat. Atmosfer di Zenergy Retreat benar-benar membuat saya merasa terlahir
+                        kembali."</p>
+                    <div class="flex items-center gap-1 text-primary">
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                    </div>
+                </div>
+                <!-- Review Card 2 -->
+                <div
+                    class="min-w-[320px] md:min-w-[400px] bg-secondary-fixed/30 p-8 rounded-[32px] border border-secondary-fixed/50">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-full overflow-hidden bg-white border-2 border-white pebble-shadow">
+                            <img class="w-full h-full object-cover"
+                                data-alt="Close up portrait of a middle aged man with a relaxed posture and kind eyes, wearing casual outdoor attire, in a sun-drenched library setting. High-end lifestyle portrait."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPuTSNlSdMvWT2zIlGfYm2u2m5lVsw7hqi87z6ciSnTzsNu99I7U_LEA2Xenc6GigsjU9s65Ta4FK0EtgnTiTE_0RJ4mRILpP4JXzc6P8sCXbbWtsuiVSdKqEzF5TnqQ4LNNTdNLAv5etCmNhY4e1hyk_Om6_geaYL7ReyGFxUh_gUcAweUfKC5gETxfmNXjy2P7BXpi9D5WomSIdE2ts6eWGdrxPNL10aGqJ3t-_xYDrcywxOuTCUlTCdjlvxYS4qIf5k2MgB6ErJ" />
+                        </div>
+                        <div>
+                            <p class="font-label-md text-label-md text-on-surface">Budi Santoso</p>
+                            <p class="text-label-sm font-label-sm text-on-secondary-fixed-variant">Bandung, Indonesia
+                            </p>
+                        </div>
+                    </div>
+                    <p class="font-body-md text-body-md italic text-on-surface-variant mb-6">"Pencarian filter
+                        suasananya sangat akurat. Saya menemukan 'Silent Library' dan itu persis seperti yang saya
+                        butuhkan untuk menulis skripsi."</p>
+                    <div class="flex items-center gap-1 text-primary">
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+                <!-- Review Card 3 -->
+                <div
+                    class="min-w-[320px] md:min-w-[400px] bg-primary-fixed/30 p-8 rounded-[32px] border border-primary-fixed/50">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 rounded-full overflow-hidden bg-white border-2 border-white pebble-shadow">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A portrait of a creative professional woman with glasses, expressing a sense of relief and calm, in a modern minimalist workspace with plants. High contrast and clean composition."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw7wOWl9GqXRY_eB8F01Mt8s9Ji-2Feh2--S4FIZgSdcqfpaDaq1MrpRH3ktJH5-PRbOetXJe0LC9BhOLyn2KUIG4t3ALYljZM5p-1j1GCMEsdsW6imTDItmi3Ovu5WQbdI5BbpGw2EH9MZUUwtOzp1Nqnx3SEr1oFTfiiytrartsmbiy3mVUPE1_yRyNNKEMFAXmYfv_khzXZs-LdEBH5z2FLrsolAGZNaKdrwCLa1-Z4_ZRRRLBl8PcYEfS6R4GTBHVLEgNO2Q-0" />
+                        </div>
+                        <div>
+                            <p class="font-label-md text-label-md text-on-surface">Maya Angelia</p>
+                            <p class="text-label-sm font-label-sm text-on-primary-fixed-variant">Surabaya, Indonesia</p>
+                        </div>
+                    </div>
+                    <p class="font-body-md text-body-md italic text-on-surface-variant mb-6">"Design aplikasinya sangat
+                        menenangkan mata. Menelusuri galeri di Sanctuary sudah merupakan terapi tersendiri bagi saya."
+                    </p>
+                    <div class="flex items-center gap-1 text-primary">
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                        <span class="material-symbols-outlined active-icon">star</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- FAB for Quick Actions -->
+    <button
+        class="fixed bottom-8 right-8 w-16 h-16 bg-primary hover:bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center transition-all hover:rotate-90 active:scale-90 z-50">
+        <span class="material-symbols-outlined text-[32px]">add</span>
+    </button>
+    <script>
+        function setTheme(theme) {
+            const html = document.documentElement;
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            } else if (theme === 'light') {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+                localStorage.removeItem('theme');
+            }
+        }
+
+        // Initialize theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

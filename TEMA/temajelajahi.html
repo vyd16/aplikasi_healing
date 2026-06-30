@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="light dark" lang="en" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sanctuary Directory - Find Your Peace</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f8f3e7",
+                        "surface-bright": "#fef9ed",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e7e2d6",
+                        "surface-container-high": "#ede8dc",
+                        "on-primary-fixed-variant": "#7c2e00",
+                        "secondary-fixed": "#fcdcca",
+                        "on-surface": "#1d1c15",
+                        "secondary-fixed-dim": "#dfc0af",
+                        "surface-tint": "#9b4517",
+                        "primary-fixed-dim": "#ffb595",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#56433b",
+                        "on-primary-fixed": "#351000",
+                        "surface": "#fef9ed",
+                        "secondary": "#71594b",
+                        "on-tertiary-fixed": "#141e0c",
+                        "inverse-surface": "#323029",
+                        "on-secondary-fixed": "#28180d",
+                        "on-background": "#1d1c15",
+                        "surface-dim": "#dedace",
+                        "surface-container": "#f2ede2",
+                        "outline-variant": "#dcc1b6",
+                        "surface-container-highest": "#e7e2d6",
+                        "outline": "#897269",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#6f7b62",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fef9ed",
+                        "tertiary": "#56624a",
+                        "inverse-primary": "#ffb595",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#584235",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#765e4f",
+                        "primary": "#9a4417",
+                        "secondary-container": "#f9d9c7",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#3f4a34",
+                        "tertiary-fixed-dim": "#becbae",
+                        "inverse-on-surface": "#f5f0e4",
+                        "tertiary-fixed": "#dae7c9",
+                        "on-tertiary-container": "#020600",
+                        "primary-container": "#ba5c2d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #fef9ed;
+            color: #1d1c15;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .pebble-shadow {
+            box-shadow: 0 10px 40px -10px rgba(62, 43, 31, 0.08);
+        }
+
+        .sidebar-transition {
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collapsed-sidebar {
+            width: 88px !important;
+        }
+
+        .collapsed-sidebar .nav-label,
+        .collapsed-sidebar .sidebar-header-text,
+        .collapsed-sidebar .footer-label {
+            display: none;
+        }
+
+        .collapsed-sidebar .sidebar-inner {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-body-md min-h-screen">
+    <!-- Sidebar Component -->
+    <aside
+        class="fixed left-unit top-unit bottom-unit w-64 bg-surface-container-low dark:bg-surface-dim rounded-[32px] my-4 ml-4 px-6 py-6 flex flex-col gap-6 shadow-xl shadow-[#3E2B1F]/5 sidebar-transition z-50"
+        id="sidebar">
+        <div class="flex items-center gap-3 sidebar-header mb-4">
+            <div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">spa</span>
+            </div>
+            <div class="sidebar-header-text">
+                <h1 class="font-headline-md text-headline-md font-bold text-on-surface">Sanctuary</h1>
+                <p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Find your peace</p>
+            </div>
+        </div>
+        <nav class="flex-1 flex flex-col gap-2">
+            <!-- Dashboard -->
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="nav-label font-label-md text-label-md">Dashboard</span>
+            </a>
+            <!-- Directory (Active) -->
+            <a class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full p-4 flex items-center gap-3 shadow-lg shadow-[#BA5C2D]/20 transition-all duration-300"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+                <span class="nav-label font-label-md text-label-md">Directory</span>
+            </a>
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">spa</span>
+                <span class="nav-label font-label-md text-label-md">Atmospheres</span>
+            </a>
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="nav-label font-label-md text-label-md">Collections</span>
+            </a>
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span class="nav-label font-label-md text-label-md">Reviews</span>
+            </a>
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="nav-label font-label-md text-label-md">Settings</span>
+            </a>
+        </nav>
+        <button
+            class="absolute -right-3 top-20 bg-surface-container-highest w-6 h-6 rounded-full flex items-center justify-center shadow-md border border-outline-variant hover:scale-110 transition-transform"
+            id="sidebar-toggle">
+            <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+        </button>
+        <div class="mt-auto border-t border-outline-variant/30 pt-6 flex flex-col gap-2">
+            <a class="text-on-surface-variant hover:bg-primary-fixed hover:text-on-primary-fixed rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">account_circle</span>
+                <span class="footer-label font-label-md text-label-md">Profile</span>
+            </a>
+            <a class="text-on-surface-variant hover:bg-error-container/20 hover:text-error rounded-full p-4 flex items-center gap-3 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="footer-label font-label-md text-label-md">Logout</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-72 mr-margin-desktop pt-10 pb-20 transition-all duration-300" id="main-content">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-10">
+            <div>
+                <h2 class="font-display-lg text-display-lg text-on-surface">Sanctuary Directory</h2>
+                <p class="text-on-surface-variant font-body-lg">Discover curated healing spaces for your soul</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <div
+                    class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border-2 border-surface-container-high">
+                    <img alt="User profile" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqWbILtKk-k25jf9dC4-j59CvgwKthfD8-uFZEoqoptBqVpN_RWYJDfZNcj_SVyFzRmHTewi2x0hKbyQK0IKIVmTQVIMgHm0qjTeDJcsGaDdvbAM96DIVwGL2VHGBmpImLR3oYLZ-4rEnocGzsQO_fW5QGgS6_3oC9wd-raTjQ23eAiw-cZmnqlXYiUI4E4b_QmvRmj0EtpYxkQk7pTjl87t183frgYRRQtr4s7Zu9sN6qI7U5kBbQpKxkrIgjsdKy8-xvi3bGU-IL">
+                </div>
+            </div>
+        </header>
+        <!-- Search & Filter Section -->
+        <div class="flex flex-col md:flex-row gap-gutter mb-12 items-center">
+            <div class="relative flex-1 group">
+                <span
+                    class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60">search</span>
+                <input
+                    class="w-full h-[64px] bg-surface-container-high border-none rounded-[20px] pl-14 pr-6 focus:ring-2 focus:ring-primary transition-all text-body-md placeholder:text-on-surface-variant/50"
+                    placeholder="Search for cafes, parks, or quiet spots..." type="text">
+            </div>
+            <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide w-full md:w-auto">
+                <button
+                    class="px-6 py-4 bg-primary text-on-primary rounded-full font-label-md text-label-md whitespace-nowrap shadow-md">All
+                    Spaces</button>
+                <button
+                    class="px-6 py-4 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">forest</span> Alam
+                </button>
+                <button
+                    class="px-6 py-4 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">coffee</span> Kafe
+                </button>
+                <button
+                    class="px-6 py-4 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">palette</span> Seni
+                </button>
+                <button
+                    class="px-6 py-4 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md whitespace-nowrap transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">self_improvement</span> Yoga
+                </button>
+            </div>
+        </div>
+        <!-- Directory Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <!-- Place Card 1 -->
+            <div
+                class="bg-surface-container-lowest rounded-[32px] overflow-hidden pebble-shadow group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="A serene indoor botanical cafe filled with lush green tropical plants, hanging ferns, and warm sunlight streaming through large windows. People are sitting at minimalist wooden tables in a peaceful atmosphere with terracotta flooring. Modern light-mode aesthetic with organic textures and natural materials."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9rqcQEF-g5SQQAYT_-9y0TmnLdjJRh8I0K6hRCMUq_qSGppuq3PJLi0AmrOp_Ovd2cEPMEZj21wOPStIVjBzB62t9Z7hrnT_xX3jEeCso_zPxxLk5eTpMtmijkIFwKzy8wJNfib8mJrq7hzglsWDuPd2eQVQIc-1eAUKFGAPoGEckJw62_43d6o4jyuRzLrhH3GLTwCxraezDwyzUzrxMSfHbOhx-hkvnVzoLZie_9DSEYsiKBAA2QmeY9ixQog2oZBzpUV9OuwU3">
+                    <div
+                        class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-label-md text-label-md text-on-surface">4.9 (120 reviews)</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Oase Hijau Cafe</h3>
+                        <span class="text-primary-container"><span
+                                class="material-symbols-outlined">favorite</span></span>
+                    </div>
+                    <p class="text-on-surface-variant mb-6 line-clamp-2">A lush botanical sanctuary in the heart of the
+                        city. Perfect for focused work or a quiet afternoon with herbal tea.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[20px]">location_on</span>
+                            <span class="text-label-sm">Jakarta Selatan</span>
+                        </div>
+                        <button
+                            class="bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-md text-label-md hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                            Lihat Tempat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Place Card 2 -->
+            <div
+                class="bg-surface-container-lowest rounded-[32px] overflow-hidden pebble-shadow group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="A tranquil outdoor zen garden at dusk with neatly raked sand, smooth river stones, and a small wooden meditation platform. Soft amber lanterns illuminate the space against a backdrop of deep green pine trees and a misty mountain range. High-end minimal design with a focus on silence and groundedness."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiBOcrKf3_OE8gmuYRskCEjH3CDSqctTLyEvm-gbcwUel2eAiY8LeiDeuficdg0fHr94SYJOMJpnnkmBy5JKyNZaXi3qwPXu0gfJLPQLDgEe2WhMpNhFUOc1GUxkSw4ibztmuXGtZpJJ7DnWWaRMa9Te0SO7UhnKrnrTuAS8DoS6DnE3v40Rb1JQb48lRL3XRLQR9ftyFIwmAOuDr1j9PBrluO9n4uDDrItazQ7kIGzCKOOkY5s3XVvCC25QOzn1vcRwfFPMxPdkuj">
+                    <div
+                        class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-label-md text-label-md text-on-surface">4.8 (85 reviews)</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Zenith Garden</h3>
+                        <span class="text-on-surface-variant opacity-40"><span
+                                class="material-symbols-outlined">favorite</span></span>
+                    </div>
+                    <p class="text-on-surface-variant mb-6 line-clamp-2">Traditional Japanese-inspired zen garden
+                        designed for deep meditation and silence. A true city getaway.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[20px]">location_on</span>
+                            <span class="text-label-sm">Bandung Utara</span>
+                        </div>
+                        <button
+                            class="bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-md text-label-md hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                            Lihat Tempat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Place Card 3 (High Impact Bento Style) -->
+            <div
+                class="bg-tertiary text-on-tertiary rounded-[32px] overflow-hidden pebble-shadow group flex flex-col md:col-span-1 hover:-translate-y-2 transition-all duration-300">
+                <div class="p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="bg-tertiary-fixed text-on-tertiary-fixed w-fit px-4 py-1 rounded-full text-label-sm mb-4">
+                            Featured Venue</div>
+                        <h3 class="font-display-lg text-[28px] mb-4 leading-tight">Artisanal Pottery &amp; Tea House
+                        </h3>
+                        <p class="opacity-80 font-body-md mb-8">Slow down your pace with rhythmic clay working and
+                            locally sourced herbal blends. A tactile healing experience.</p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex -space-x-3">
+                            <img class="w-10 h-10 rounded-full border-2 border-tertiary"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDX_ys7D0atwoqF5Ofc4UsdqZ_9XSwlgW5AVUt6TnY4CAlxWbIMcUjHky6eKiItBDvIEKIkYo--FClN5mrdRNvtXRg2EV7mRPIMYNS908uDnqbNyarhQtRE_arDtCcHN0dviXN7fNeU_BMZaC0u7wATGGIh3wbOmY6pMj9aZL3ZDQcy40g3frIp8F8G7FVa3hJy9PMQOJqN_Ww8Ai9etQkGHbDE7eL5jiPhbUe7XFos9b6Y_qyX3-Yf7dQs4AQ1ZLavaLkAClLObPI">
+                            <img class="w-10 h-10 rounded-full border-2 border-tertiary"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl6ppTgAWWW5sg6PYd-LfS-RDCkbueuabtw_J-t6K_Y4DsUY1N_cE_M4x_IdPgPW3YcZfk9PyxZPW-idv9ChnGFc66A2igYIhZzGB5DzZGTafBV8enm8ma2lk5b3ghMM468CEe23ZNHnZhS9pt0G0m038m8-D7UUhwsEJ3A5b4Uxs4JjHNWKlDCqU9S7hlxuDa1rWl7jfurtntu5oIxvfJ-mmYdbth3FG5PRaOO4EtWhbi-Is6Rei09aHIRFdRmZFsweXCCs_aIch_">
+                            <img class="w-10 h-10 rounded-full border-2 border-tertiary"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuApoubTjvyAHkLnstvmUcu2e_cu7hlRjkuG5a8c-sn9_GFw2xjXLQHA4MS4P9h3-EXqstLU8y6mWKUb1568_dzGECpdr45fc8I8Hyy2ZschNC3juhnsguulggPnRuOdpjGuMTACb9FPYJF5Q36h4DcHn3uXNPn_0VEFm50vvVO0hsESADOsf9KFUhnTaosptpNb_arfAGUiKE6b6Vh8TMauN-rcGAXwN-jL3Se9oloF8x2S1EDPOWx8D9Gk-AtkUKMryDjx_QMQQ3Fx">
+                            <div
+                                class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-label-sm border-2 border-tertiary">
+                                +12</div>
+                        </div>
+                        <button
+                            class="w-full bg-white text-tertiary px-6 py-4 rounded-[16px] font-bold text-label-md hover:bg-tertiary-fixed transition-colors">
+                            Lihat Tempat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Place Card 4 -->
+            <div
+                class="bg-surface-container-lowest rounded-[32px] overflow-hidden pebble-shadow group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="A modern minimalist library with floor-to-ceiling bookshelves in warm oak wood, comfortable beige linen armchairs, and soft indirect lighting. Large glass panels look out onto a peaceful birch forest. The aesthetic is extremely clean and calm, emphasizing warmth and intellectual peace."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCK65gj1YGk99zUN6cCSnaTtyoGF7wAFsmuKcEFGMtE8N-GMaJwamzMHgU6TifK621OH4vctvFBNCcryKeIFagJoleRNFNPbbgtcF_Hm5yZXec5bGvn1IE0NsKMN_20ea8m6ZQZKFwIjT5Qye4d7vMCaYKeFAV74PThLLE8s2iGJKo5ri-WaI5JodtT6adkKhSWNAhUcssFQCzvbkJvC8d2MkcgdfcGQKYMa-y0XsjLg8qgPbeIORl5a905YmVNJ2N0Gcc_hBlCcaq">
+                    <div
+                        class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-label-md text-label-md text-on-surface">4.7 (210 reviews)</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-headline-md text-headline-md text-on-surface">The Reading Nook</h3>
+                        <span class="text-on-surface-variant opacity-40"><span
+                                class="material-symbols-outlined">favorite</span></span>
+                    </div>
+                    <p class="text-on-surface-variant mb-6 line-clamp-2">A community library dedicated to mindfulness
+                        literature and slow reading. No phones allowed.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[20px]">location_on</span>
+                            <span class="text-label-sm">Yogyakarta City</span>
+                        </div>
+                        <button
+                            class="bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-md text-label-md hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                            Lihat Tempat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Place Card 5 -->
+            <div
+                class="bg-surface-container-lowest rounded-[32px] overflow-hidden pebble-shadow group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="An expansive open-air yoga shala overlooking a lush tropical jungle valley at sunrise. The floor is made of polished sustainable bamboo, and the roof is a traditional thatched structure. Soft morning mist hangs over the distant palms. Peaceful spiritual sanctuary atmosphere with natural terracotta and cream tones."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH4p0cMLUnqnrWSL9-Bhg6GDBxv77yhcYnrz_eV1kL0YfwlAplvMi670Eq_jCPXsN4hkjB3LMGaKLjb_BFRlBRt-Rc5ucYUtWaSV1oZ5Rk3c8tBtCy7OGRexjX8J0M554h-em6RnKevc3-mxOHdrq6cdoYki9KPtEqCVXQuoBuHTrlut-g_1SE3Fyhgr14pW4Lcb9qV3ZBbx8h9kDdMvVEh07tnPxSoKm6Vwh9UVzOiP58yEOVyYoGrS6cw_w2s4qJHC-G4CPF1kvK">
+                    <div
+                        class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="font-label-md text-label-md text-on-surface">5.0 (54 reviews)</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Mandala Shala</h3>
+                        <span class="text-on-surface-variant opacity-40"><span
+                                class="material-symbols-outlined">favorite</span></span>
+                    </div>
+                    <p class="text-on-surface-variant mb-6 line-clamp-2">Experience spiritual alignment in our open-air
+                        studio overlooking the valley of kings.</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-[20px]">location_on</span>
+                            <span class="text-label-sm">Ubud, Bali</span>
+                        </div>
+                        <button
+                            class="bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-md text-label-md hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                            Lihat Tempat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6: Discovery Prompt -->
+            <div
+                class="bg-secondary-container rounded-[32px] p-8 flex flex-col justify-center items-center text-center pebble-shadow group hover:-translate-y-2 transition-all duration-300 border-2 border-dashed border-outline-variant">
+                <div
+                    class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-primary mb-6 shadow-md">
+                    <span class="material-symbols-outlined text-[32px]">add_location_alt</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-secondary-container mb-2">Suggest a Sanctuary</h3>
+                <p class="text-on-secondary-fixed-variant mb-8 font-label-md">Know a place that feels like a hug for the
+                    soul? Share it with the community.</p>
+                <button
+                    class="bg-on-secondary-container text-white px-8 py-4 rounded-full font-bold text-label-md hover:opacity-90 transition-opacity">
+                    Submit Location
+                </button>
+            </div>
+        </div>
+    </main>
+    <!-- Theme Switcher Floating -->
+
+    <script>
+        // Sidebar Toggle Logic
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        let isCollapsed = false;
+
+        sidebarToggle.addEventListener('click', () => {
+            isCollapsed = !isCollapsed;
+            if (isCollapsed) {
+                sidebar.classList.add('collapsed-sidebar');
+                mainContent.style.marginLeft = '112px';
+                sidebarToggle.querySelector('span').innerText = 'chevron_right';
+            } else {
+                sidebar.classList.remove('collapsed-sidebar');
+                mainContent.style.marginLeft = '288px';
+                sidebarToggle.querySelector('span').innerText = 'chevron_left';
+            }
+        });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.innerText = 'dark_mode';
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.innerText = 'light_mode';
+            }
+        });
+
+        // Add smooth hover interactions to cards
+        const cards = document.querySelectorAll('.pebble-shadow');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for micro-interaction sounds or subtle particle effects
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
