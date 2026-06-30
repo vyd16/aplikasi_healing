@@ -16,7 +16,7 @@ class LocationSeeder extends Seeder
             'name' => 'Admin HealPoint',
             'email' => 'admin@healpoint.id',
             'password' => Hash::make('password123'),
-            'is_admin' => true,
+            'role' => 'admin',
         ]);
 
         // Create demo user
@@ -24,7 +24,7 @@ class LocationSeeder extends Seeder
             'name' => 'Pengguna Demo',
             'email' => 'demo@healpoint.id',
             'password' => Hash::make('password123'),
-            'is_admin' => false,
+            'role' => 'user',
         ]);
 
         $spots = [
