@@ -106,23 +106,3 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::put('/creators/{id}/reject', [DashboardController::class, 'rejectCreator'])->name('admin.creator.reject');
 });
 
-// Temporary secure route to run seeding in Vercel environment
-Route::get('/run-seeding-prod', function () {
-    if (request('key') !== 'healpoint_secure_token_123') {
-        abort(403);
-    }
-    
-    try {
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-        return response()->json([
-            'status' => 'success',
-            'output' => \Illuminate\Support\Facades\Artisan::output()
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage()
-        ], 500);
-    }
-});
-
