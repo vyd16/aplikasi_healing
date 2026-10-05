@@ -10,6 +10,7 @@ use App\Http\Controllers\NotificationWebController;
 use App\Http\Controllers\CreatorApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ChatbotController;
 use App\Models\Location;
 
 /*
@@ -47,6 +48,9 @@ Route::get('/map', [LocationWebController::class, 'map'])->name('map');
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+// Chatbot (Google Gemini)
+Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.send');
 
 // ---- Auth Routes (Guest Only) ----
 Route::middleware('guest')->group(function () {

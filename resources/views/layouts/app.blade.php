@@ -307,6 +307,7 @@
             }
         });
     </script>
+    @include('partials.chatbot_widget')
     @stack('scripts')
 </body>
 </html>

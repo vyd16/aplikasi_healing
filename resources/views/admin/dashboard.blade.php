@@ -6,7 +6,7 @@
 <div class="hp-admin-header mb-4">
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
         <div>
-            <h1 class="mb-1" style="font-size:1.6rem;font-weight:800;color:#fff;">Selamat Datang, Admin 👋</h1>
+            <h1 class="mb-1" style="font-size:1.6rem;font-weight:800;color:#fff;">Selamat Datang, Admin</h1>
             <p class="mb-0" style="opacity:0.85;font-size:0.9rem;">Panel kontrol untuk mengelola seluruh ekosistem HealPoint.</p>
         </div>
         <div class="text-end" style="opacity:0.7;font-size:0.8rem;">
@@ -81,7 +81,7 @@
             @if($pendingLocations->isEmpty())
                 <div class="hp-review-card text-center py-4" style="color:var(--text-muted);">
                     <span class="material-symbols-outlined" style="font-size:2.5rem;color:var(--color-success);">check_circle</span>
-                    <p class="mt-2 mb-0">Semua lokasi sudah disetujui! 🎉</p>
+                    <p class="mt-2 mb-0">Semua lokasi sudah disetujui!</p>
                 </div>
             @else
                 <div class="hp-table">
